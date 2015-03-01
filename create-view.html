@@ -18,20 +18,21 @@
 	});
 	var UserView = Backbone.View.extend({
 		el: '#user-card',
+		
 		initialize: function() {
-			console.log('Init Function Called');
+			//console.log('Init Function Called');
 			this.render();
 		},
+		
 		render: function() {
-		console.log('Render Function Called');
+		//console.log('Render Function Called');
 		var $card = $('<h1>' + this.model.get('username')> + '</h1>');
 			var $name = $('<h1>' + this.model.get('displayName') + '</h1>').appendTo($card);
 			var $bio = $('<p>' + this.model.get('bio') + '</p>').appendTo($card);
 			this.$el.html($card);
-			console.log(this.model.get('bio'));
-			console.log(this.model.get('username'));
-			console.log(this.model.get('displayName'));
-			console.log(this.model.get($card));
+			//console.log(this.model.get('bio'));
+			//console.log(this.model.get('username'));
+			//console.log(this.model.get('displayName'));
 			return this;
 			}
 	});
