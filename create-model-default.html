@@ -9,15 +9,19 @@
   <script src="underscore.js"></script>
   <script src="backbone.js"></script>
   <script>
-	var Fruit = Backbone.Model.extend({  // Create model with default attributes
-		initialize: function() {
-		console.log('Model initialized');
+
+  
+  var Fruit = Backbone.Model.extend({  // Create model with default attributes
+	defaults: {
+		condition: 'perfect'
 	}
 	});
-	var apple = new Fruit({
-		type: 'apple',
-		color: 'red'
-	});
+	
+	 var apple = new Fruit({
+	type: 'apple',
+	color: 'red'
+  });
+  
   console.log(apple.get('condition'));	
   </script>
   </body>
