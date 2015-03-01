@@ -11,8 +11,8 @@
   <script>
 	var Fruit = Backbone.Model.extend({  // Create model with initialize function
 		initialize: function() {
-		this.on('add', function () {
-		console.log('Fruit added: ' + this.get('type'));
+		this.on('change', function () {
+		console.log('Model Changed!!');
 		});
 	}
 	});
@@ -21,7 +21,7 @@
 		color: 'red'
 	});
   
-  
+  apple.set('color', 'yellow'); // set attribute
   </script>
   </body>
 </html>
