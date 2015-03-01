@@ -9,21 +9,21 @@
   <script src="underscore.js"></script>
   <script src="backbone.js"></script>
   <script>
-
   
-  var Fruit2 = Backbone.Model.extend({  // Create model with "computed attributes"
+  var Fruit = Backbone.Model.extend({  // Create model with "computed attributes"
 	description: function() {
 	return 'This returns: ' + this.get('color') + ',' + this.get('condition') + '' + this.get('type'); 
 	}
 	});
 	
-	 var apple = new Fruit2({
+	 var apple = new Fruit({
   type: 'apple',
 	color: 'red',
 	condition: 'shiny'
   });
   
   console.log(apple.description() );	
+  
   </script>
   </body>
 </html>
