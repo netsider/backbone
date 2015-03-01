@@ -24,10 +24,14 @@
 		},
 		render: function() {
 		console.log('Render Function Called');
-		var $card = $('<a href="/users/' + this.model.get('username')> + '">');
+		var $card = $('<h1>' + this.model.get('username')> + '</h1>');
 			var $name = $('<h1>' + this.model.get('displayName') + '</h1>').appendTo($card);
 			var $bio = $('<p>' + this.model.get('bio') + '</p>').appendTo($card);
 			this.$el.html($card);
+			console.log(this.model.get('bio'));
+			console.log(this.model.get('username'));
+			console.log(this.model.get('displayName'));
+			console.log(this.model.get($card));
 			return this;
 			}
 	});
