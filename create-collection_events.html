@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var Fruit = Backbone.Model.extend({  // Create model with initialize function
+	});
+	
+	var FruitS = Backbone.Collection.extend({ // Create collection
+		model: Fruit,
+		initialize: function(){
+			this.on('add', function(){
+				console.log('Added!');
+			});
+			this.on('remove', function(){
+				console.log('Removed!');
+			});
+			this.on('change', function () {
+				console.log('Collection Changed!!');
+		});
+		}
+	});
+
+	var fruitcollection = new FruitS({ type: 'apple', color: 'red' }); // create new instance of collection, and add items when it is created
+	
+  </script>
+  </body>
+</html>
