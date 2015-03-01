@@ -10,16 +10,19 @@
   <script src="backbone.js"></script>
   <script>
 	var Fruit = Backbone.Model.extend({  // Create model with initialize function
-
-
+		initialize: function() {
+		this.on('change:condition', function () {
+		console.log('Model Condition Changed!!');
+		});
+	}
 	});
-
 	var apple = new Fruit({
 		type: 'apple',
-		color: 'red'
+		color: 'red',
+		condition: 'great'
 	});
   
-  
+  apple.set('condition', 'moldy'); // set attribute
   </script>
   </body>
 </html>

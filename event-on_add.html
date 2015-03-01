@@ -12,7 +12,7 @@
 	var Fruit = Backbone.Model.extend({  // Create model with initialize function
 		initialize: function() {
 		this.on('add', function () {
-		console.log('Fruit added: ' + this.get('type'));
+			console.log('Fruit added: ' + this.get('type'));
 		});
 	}
 	});
@@ -20,8 +20,11 @@
 		type: 'apple',
 		color: 'red'
 	});
-  
-  
+	var pair = new Fruit({
+		type: 'pair',
+		color: 'green'
+	});
+
   </script>
   </body>
 </html>
