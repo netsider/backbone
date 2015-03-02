@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<header>
+<div class="welcome-message">Welcome</div>
+</header>
+<div id="user-card"></div>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var User = Backbone.Model.extend({}); // Create model
+	var user = new User({ // instantiate model
+		displayName: 'Kate'
+	});
+	var WelcomeMessageView = Backbone.View.extend({
+		el: 'header .welcome-message', // NOTE THE SPACE!
+		initialize: function() {
+		this.model.on('change:displayName', this.render, this);
+		this.render();
+	},
+	render: function() {
+		var displayName = this.model.get('displayName');
+		this.$el.html('Welcome ' + displayName);
+		return this;
+	}
+	});
+	var welcomeMessageView = new WelcomeMessageView({
+		model: user
+	});
+  </script>
+  </body>
+</html>
