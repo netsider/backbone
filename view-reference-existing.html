@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<header>
+<div class="welcome-message">Hello</div>
+</header>
+<div id="user-card"></div>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var User = Backbone.Model.extend({}); // Create model
+	var user = new User({ // instantiate model
+		displayName: 'Russ'
+	});
+	var WelcomeMessageView = Backbone.View.extend({
+		el: 'header .welcome-message', // NOTE THE SPACE!
+		initialize: function() {
+		this.model.on('change:displayName', this.render, this); // Makes render() called everytime there is a chnage to displayName
+		this.render();
+	},
+	render: function() {
+		var displayName = this.model.get('displayName');
+		this.$el.html('Welcome ' + displayName);
+		return this;
+	}
+	});
+	var welcomeMessageView = new WelcomeMessageView({
+		model: user
+	});
+	//Use "console.log('displayName', 'Horatio')" to see this in action
+  </script>
+  </body>
+</html>

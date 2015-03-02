@@ -6,7 +6,7 @@
 </head>
 <body>
 <header>
-<div class="welcome-message">Welcome</div>
+<div class="welcome-message">Hello</div>
 </header>
 <div id="user-card"></div>
   <script src="jquery-1.11.2.js"></script>
@@ -15,12 +15,12 @@
   <script>
 	var User = Backbone.Model.extend({}); // Create model
 	var user = new User({ // instantiate model
-		displayName: 'Kate'
+		displayName: 'Russ'
 	});
 	var WelcomeMessageView = Backbone.View.extend({
 		el: 'header .welcome-message', // NOTE THE SPACE!
 		initialize: function() {
-		this.model.on('change:displayName', this.render, this);
+		this.model.on('change:displayName', this.render, this); // Makes render() called everytime there is a chnage to displayName
 		this.render();
 	},
 	render: function() {
@@ -32,6 +32,7 @@
 	var welcomeMessageView = new WelcomeMessageView({
 		model: user
 	});
+	//Use "console.log('displayName', 'Horatio')" to see this in action
   </script>
   </body>
 </html>
