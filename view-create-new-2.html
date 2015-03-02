@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<header>
+<div class="welcome-message"></div>
+</header>
+<div id="user-card"></div>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var User = Backbone.Model.extend({}); // Create model
+	var user = new User({ // instantiate model
+		displayName: 'Russ'
+	});
+	var WelcomeMessageView = Backbone.View.extend({
+		tagName: 'li',
+		className: 'container', 
+		id: 'my-view-wrapper',
+		initialize: function() {
+			console.log('Init Function Called');
+			this.render();
+		},
+		render: function() {
+			console.log('Render Function Called');
+			var $name = $('<h1>' + this.model.get('displayName') + '</h1>'); //.appendTo($card)
+			this.$el.html($name); // It doesn't like $card, using $name instead
+			//console.log(this.model.get('bio'));
+			//console.log(this.model.get('username'));
+			//console.log(this.model.get('displayName'));	
+			return this;
+			}
+	});
+	var welcomeMessageView = new WelcomeMessageView({
+		model: user
+	});
+	//Use "console.log('displayName', 'Horatio')" to see this in action
+  </script>
+  </body>
+</html>

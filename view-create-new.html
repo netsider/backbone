@@ -5,34 +5,51 @@
   <title></title>
 </head>
 <body>
-<header>
-<div class="welcome-message">Hello</div>
-</header>
-<div id="user-card"></div>
+<ul id="band-wrapper"></ul>
   <script src="jquery-1.11.2.js"></script>
   <script src="underscore.js"></script>
   <script src="backbone.js"></script>
   <script>
-	var User = Backbone.Model.extend({}); // Create model
-	var user = new User({ // instantiate model
-		displayName: 'Russ'
+	var Band = {};
+	//create the model
+	Band.Member = Backbone.Model.extend({});
+	//create the collection
+	Band.Members = Backbone.Collection.extend({
+		model: Band.Member
 	});
-	var WelcomeMessageView = Backbone.View.extend({
-		el: 'header .welcome-message', // NOTE THE SPACE!
+	//populate the collection
+	var band = new Band.Members([
+		{ name: 'John' },
+		{ name: 'Paul' },
+		{ name: 'George' },
+		{ name: 'Ringo' }
+	]);
+	//Create a view for each item/member
+	Band.Member.View = Backbone.View.extend({
+		tagName: 'li',
+		render: function() {
+			this.$el.text(this.model.get('name'));
+			return this;
+		}	
+	});
+	//create a view for the band
+	var Band.Members.View = Backbone.View.extend({
+		el: '#band-wrapper',
 		initialize: function() {
-		this.model.on('change:displayName', this.render, this); // Makes render() called everytime there is a chnage to displayName
-		this.render();
-	},
-	render: function() {
-		var displayName = this.model.get('displayName');
-		this.$el.html('Welcome ' + displayName);
+			this.render();
+		},
+		render: function() {
+			this.collection.each(function(bandMember) {
+				var bandMemberView = new Band.Member.View({
+					model: bandMember
+				});
+		});
 		return this;
-	}
+		}
 	});
-	var welcomeMessageView = new WelcomeMessageView({
-		model: user
+	var bandView = new Band.Members.View({
+		collection: band
 	});
-	//Use "console.log('displayName', 'Horatio')" to see this in action
   </script>
   </body>
 </html>
