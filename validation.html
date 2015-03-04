@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-1.11.2.js"></script>
+<script src="underscore.js"></script>
+<script src="backbone.js"></script>
+<script>
+var Person = new Backbone.Model({name: 'Jeremy'});
+Person.validate = function(attrs) {
+  if (!attrs.name) {
+    return 'I need your name';
+  }
+};
+Person.set({name: 'Samuel'});
+console.log(Person.get('name'));
+// Person.unset('name', {validate: true});
+Person.unset('name', { silent: true });
+console.log(Person.get('name'));
+</script>
+</body>
+</html>
