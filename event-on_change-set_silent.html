@@ -11,8 +11,12 @@
 <script>
 	var Person = new Backbone.Model();
 	Person.on("change:name", function() { console.log('Name changed'); });
-	// Person.set({name: 'Andrew'});
-	Person.set({name: 'Jeremy'}, {silent: true}); // This works the same as the above, for some reason (it's not supposed to)
+	console.log(Person.hasChanged("name"));
+	console.log(Person.hasChanged(null));
+	Person.set({name: 'Jeremy'}, {silent: true});
+	console.log(Person.hasChanged(null));
+	console.log(Person.hasChanged("name"));
+	Person.set({name: 'Andrew'}); // Won't fire "Name Changed" until this line!
 	console.log(Person.hasChanged("name"));
 	console.log(Person.hasChanged(null));
 </script>
