@@ -11,15 +11,25 @@
 <script>
 var Person = new Backbone.Model({name: 'Jeremy'});
 Person.validate = function(attrs) {
+  if(attrs === undefined) {
+   return 'Validation: Undefined';
+  }
   if (!attrs.name) {
     return 'I need your name';
   }
 };
-Person.set({name: 'Samuel'});
-console.log(Person.get('name'));
-// Person.unset('name', {validate: true});
-Person.unset('name', { silent: true });
-console.log(Person.get('name'));
+Person.set({name: 'Samuel'}); 
+// Person.unset('name', {validate: true}); // Doesn't seem to work
+// console.log(Person.get('name'));
+// Person.set({name: 'Samuel'}); 
+// Person.unset('name', { silent: true });//Works
+// console.log(Person.get('name'));
+// Person.set({name: 'Samuel'});
+// Person.unset('name');//Works
+// console.log(Person.get('name'));
+Person.set({name: 'Samuel'}, {validate: true});
+
+Person.unset('name', {validate: true});
 </script>
 </body>
 </html>

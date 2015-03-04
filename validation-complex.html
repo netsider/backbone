@@ -12,15 +12,13 @@
   var Todo = Backbone.Model.extend({
   defaults: {
     completed: false //,
-	title: "Hello World" //This will cause validation to return true.  Don't forget the comma ;)
+	//title: "Hello World" //This will cause validation to return true.  Don't forget the comma ;)
   },
-
   validate: function(attributes){
     if(attributes.title === undefined){
         return "Remember to set a title for your todo.";
     }
   },
-
   initialize: function(){
     console.log('This model has been initialized.');
     this.on("invalid", function(model, error){
@@ -28,9 +26,10 @@
     });
   }
 });
-var myTodo = new Todo();
-myTodo.set('completed', true, {validate: true}); // logs: Remember to set a title for your todo.
-console.log('completed: ' + myTodo.get('completed')); // completed: false
-  </script>
-  </body>
+	var myTodo = new Todo();
+	myTodo.set('completed', true, {validate: true}); // logs: Remember to set a title for your todo.
+	console.log('completed: ' + myTodo.get('completed')); // completed: false
+	myTodo.set({name: 'Samuel'}, {validate: true});
+</script>
+</body>
 </html>

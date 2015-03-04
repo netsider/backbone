@@ -11,17 +11,12 @@
   <script>
 	var Fruit = Backbone.Model.extend({  // Create model with initialize function
 	});
-	
 	var FruitS = Backbone.Collection.extend({ // Create collection
 		model: Fruit
 	});
-
 	var fruitcollection = new FruitS({ type: 'apple', color: 'red' }); // create new instance of collection, and add items when it is created.
-	
 	fruitcollection.add({ type: 'banana', color: 'yellow' }); // or, add items using add function.
-	
 	console.log(fruitcollection);
-	
   </script>
   </body>
 </html>

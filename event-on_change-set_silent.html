@@ -16,7 +16,7 @@
 	Person.set({name: 'Jeremy'}, {silent: true});
 	console.log(Person.hasChanged(null));
 	console.log(Person.hasChanged("name"));
-	Person.set({name: 'Andrew'}); // Won't fire "Name Changed" until this line!
+	Person.set({name: 'Andrew'}); // WON'T FIRE "NAME CHANGED" UNTIL THIS LINE!
 	console.log(Person.hasChanged("name"));
 	console.log(Person.hasChanged(null));
 </script>
