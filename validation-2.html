@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+  var Todo = Backbone.Model.extend({
+  defaults: {
+    completed: false //,
+	title: "Hello World" //This will cause validation to return true.  Don't forget the comma ;)
+  },
+
+  validate: function(attributes){
+    if(attributes.title === undefined){
+        return "Remember to set a title for your todo.";
+    }
+  },
+
+  initialize: function(){
+    console.log('This model has been initialized.');
+    this.on("invalid", function(model, error){
+        console.log(error);
+    });
+  }
+});
+var myTodo = new Todo();
+myTodo.set('completed', true, {validate: true}); // logs: Remember to set a title for your todo.
+console.log('completed: ' + myTodo.get('completed')); // completed: false
+  </script>
+  </body>
+</html>
