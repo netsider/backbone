@@ -22,10 +22,11 @@
     return 'Valid';
   }
 };
+	myTodo.set({completed: true}, {validate: true});// logs: Remember to set a title for your todo
 	//myTodo.set('completed', true, {validate: true}); // logs: Remember to set a title for your todo.
 	console.log('completed: ' + myTodo.get('completed')); // completed: false
 	//myTodo.set({name: 'Samuel'}, {validate: true});// logs: Remember to set a title for your todo.
-	myTodo.set({completed: true}, {validate: true});// logs: Remember to set a title for your todo.
+	
 </script>
 </body>
 </html>
