@@ -19,7 +19,7 @@
 	});
 	var WelcomeMessageView = Backbone.View.extend({
 		tagName: 'li',
-		className: 'container', 
+		className: 'welcome-message', 
 		id: 'my-view-wrapper',
 		initialize: function() {
 			console.log('Init Function Called');
@@ -32,13 +32,12 @@
 			//console.log(this.model.get('bio'));
 			//console.log(this.model.get('username'));
 			//console.log(this.model.get('displayName'));	
-			return this;
+			//return this;
 			}
 	});
 	var welcomeMessageView = new WelcomeMessageView({
 		model: user
 	});
-	//Use "console.log('displayName', 'Horatio')" to see this in action
   </script>
   </body>
 </html>
