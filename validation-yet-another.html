@@ -14,22 +14,27 @@ Person.validate = function(attrs) {
 	console.log("Validation Called!");
   if(!attrs.name) {
     console.log("1");
+	//return "Whatever";
   }
   if(!attrs) {
 	console.log("2");
+	//return "Whatever";
   }
   if(attrs == 'Russell') {
     console.log("3");
+	//return "Whatever";
   }
   if(attrs.name == 'Russell2') {
     console.log("4");
+	//return "Whatever";
   }
   if(attrs.title === undefined) {
-	//return "a";
 	console.log("5");
+	//return "Whatever";
   }
   if(attrs.name === undefined) {
     console.log("6");
+	//return "Whatever";
   }
 };
 Person.set({name: 'Samuel'}, {validate: true});// Calls validation
