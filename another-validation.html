@@ -19,8 +19,8 @@ defaults: {
 validate: function(attrs) {
 	console.log("Validation Called");
     if (attrs.age < 30) {
-        return 'Age must be a positive number.';
 		console.log('SHIT');
+        return 'SHIT';
     }
 },
 
@@ -29,9 +29,8 @@ work: function() {
 }
 });
 var person = new Person();
-person.get('age');//26
 person.set({age: 25}, {validate: true});
-person.get('age');//26
+console.log("Age: " + person.get('age'));
 </script>
 </body>
 </html>

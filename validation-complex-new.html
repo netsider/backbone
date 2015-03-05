@@ -11,15 +11,23 @@
   <script>
   var myTodo = new Backbone.Model({completed: false});
 	myTodo.validate = function(attrs) {
-	console.log("Validation Called!");
+	
   if(attrs) {
+  console.log("Validation Called!1");
+  console.log(attrs);
     return 'Valid';
   }
     if(!attrs) {
-    return 'inValid';
+    console.log("Validation Called!2");
+	return 'inValid';
   }
   if(attrs === true) {
-    return 'Valid';
+    console.log("Validation Called!3");
+	return 'Valid';
+  }
+  if(attrs === false) {
+    console.log("Validation Called!4");
+	return 'Valid';
   }
 };
 	myTodo.set({completed: true}, {validate: true});// logs: Remember to set a title for your todo

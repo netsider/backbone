@@ -9,45 +9,44 @@
 <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
 <script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
 <script>
-var Person = new Backbone.Model({name: 'Russell'});
+var Person = new Backbone.Model({name: 'Jeremy'});
 Person.validate = function(attrs) {
 	console.log("Validation Called!");
   if(!attrs.name) {
-    return 'I need your name';
+    console.log("1");
   }
   if(!attrs) {
-    return 'I need your name';
+	console.log("2");
   }
   if(attrs == 'Russell') {
-    return 'Name is Russell!!!!';
+    console.log("3");
   }
-  if(attrs.name == 'Russell') {
-    return 'Name is Russell!!!!';
+  if(attrs.name == 'Russell2') {
+    console.log("4");
   }
   if(attrs.title === undefined) {
-    return 'Name Exists';
+	//return "a";
+	console.log("5");
   }
   if(attrs.name === undefined) {
-    return 'Name b lan';
+    console.log("6");
   }
 };
 Person.set({name: 'Samuel'}, {validate: true});// Calls validation
-Person.set('name', 'Samuel', {validate: true}); // Calls validation
+//Person.set('name', 'Samuel', {validate: true}); // Calls validation
 // Person.unset('name', {validate: true}); // Calls validation
  // Person.unset('name', {validate: true}); // Calls validation
-console.log(Person.get('name'));
 // Person.unset('name', { silent: true });//Works
 // Person.unset('name', {validate: true});
 // Person.unset('name');
-Person.set({name: 'Russell'});  // Works
-Person.set('name', 'Russell', {validate: true}); // Not working
-console.log(Person.get('name'));
-Person.set({name: 'Russell'}, {validate: true}); // Not working
-Person.set({"name":'Russell'}, {validate: true}); // Dopesn't work
-Person.set({name: 'Russell'});  // Works
-Person.set({"name": 'Russell'});  // Works
-Person.set({"name": 'Russell'});  // Works
-Person.set({'name': 'Russell'});  // Works
+//Person.set({name: 'Russell'});  // Works
+//Person.set('name', 'Russell', {validate: true}); // Not working
+//Person.set({name: 'Russell1'}, {validate: true}); // Not working, but calls validation?
+Person.set({"name":'Russell2'}, {validate: true}); // Dopesn't work, but calls validation?
+//Person.set({name: 'Russell'});  // Works
+//Person.set({"name": 'Russell'});  // Works
+//Person.set({"name": 'Russell'});  // Works
+//Person.set({'name': 'Russell'});  // Works
 console.log(Person.get('name'));
 </script>
 </body>

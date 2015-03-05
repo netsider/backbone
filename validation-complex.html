@@ -15,8 +15,10 @@
 	//title: "Hello World" //This will cause validation to return true.  Don't forget the comma ;)
   },
   validate: function(attributes){
+	//console.log('Validation Ran!');
     if(attributes.title === undefined){
-        return "Remember to set a title for your todo.";
+        //return 'Title undefined!';
+		console.log('Title is undefined!');
     }
   },
   initialize: function(){
@@ -27,11 +29,10 @@
   }
 });
 	var myTodo = new Todo();
-	myTodo.set('completed', true);  // Logs 'completed: true'
-	//myTodo.set('completed', true, {validate: true}); // logs: Remember to set a title for your todo. and 'completed: false'
-	console.log('completed: ' + myTodo.get('completed')); // completed: false
-	//myTodo.set({name: 'Samuel'}, {validate: true});// logs: Remember to set a title for your todo.
-	myTodo.set({title: 'Russell'}, {validate: true});// logs: Remember to set a title for your todo.
+	myTodo.set('completed', true, {validate: true}); // Runs validation, because title isn't set
+	myTodo.set({title: 'Russell'}, {validate: true});
+	console.log('title: ' + myTodo.get('title'));
+	console.log('completed: ' + myTodo.get('completed'));
 </script>
 </body>
 </html>
