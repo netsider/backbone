@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+<script>
+var Person = new Backbone.Model.extend({name: 'Russell'});
+Person.validate = function(attrs) {
+	console.log("Validation Called!");
+  if(!attrs.name) {
+    return 'I need your name';
+  }
+  if(!attrs) {
+    return 'I need your name';
+  }
+  if(attrs == 'Russell') {
+    return 'Name is Russell!!!!';
+  }
+  if(attrs.name == 'Russell') {
+    return 'Name is Russell!!!!';
+  }
+  if(attrs.title === undefined) {
+    return 'Name Exists';
+  }
+  if(attrs.name === undefined) {
+    return 'Name b lan';
+  }
+};
+Person.set({name: 'Samuel'}, {validate: true});// Calls validation
+Person.set('name', 'Samuel', {validate: true}); // Calls validation
+// Person.unset('name', {validate: true}); // Calls validation
+ // Person.unset('name', {validate: true}); // Calls validation
+console.log(Person.get('name'));
+// Person.unset('name', { silent: true });//Works
+// Person.unset('name', {validate: true});
+// Person.unset('name');
+Person.set({name: 'Russell'});  // Works
+Person.set('name', 'Russell', {validate: true}); // Not working
+console.log(Person.get('name'));
+Person.set({name: 'Russell'}, {validate: true}); // Not working
+Person.set({"name":'Russell'}, {validate: true}); // Dopesn't work
+Person.set({name: 'Russell'});  // Works
+Person.set({"name": 'Russell'});  // Works
+Person.set({"name": 'Russell'});  // Works
+Person.set({'name': 'Russell'});  // Works
+console.log(Person.get('name'));
+</script>
+</body>
+</html>

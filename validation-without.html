@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-1.11.2.js"></script>
+<script src="underscore.js"></script>
+<script src="backbone.js"></script>
+<script>
+var Man = Backbone.Model.extend({
+    initialize : function(){
+        this.on("invalid",function(model,error){
+            alert(error);
+        });
+    },
+    validate : function(attrs, options){
+        if (attrs.age < 18){
+            return 'below 18';
+        } 
+    }
+});
+//Object will be created with invalid attribute 'age' 
+var man = new Man({name : 'qian', age : 12});
+console.log(man) // Returns an object with invalid attributes
+// But we'll use only valid objects.
+// Also we'll get the error message in alert, if validation fails.
+if(man.isValid()){
+    alert( man.get('name') );
+}
+var man = new Man({name : 'qian', age : 19});
+if(man.isValid()){
+    alert( man.get('name') );
+</script>
+</body>
+</html>

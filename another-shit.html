@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-1.11.2.js"></script>
+<script src="underscore.js"></script>
+<script src="backbone.js"></script>
+<script>
+  var Person = Backbone.Model.extend({
+defaults: {
+    name: 'Mr Steel',
+    age: 26,
+    occupation: 'FrontEnd Web Developer'
+},
+
+validate: function(attrs) {
+	console.log("Validation Called");
+    if (attrs.age < 30) {
+        return 'Age must be a positive number.';
+		console.log('SHIT');
+    }
+},
+
+work: function() {
+    return this.get('name') + ' is working.';
+}
+});
+var person = new Person();
+person.get('age');//26
+person.set({age: 25}, {validate: true});
+person.get('age');//26
+</script>
+</body>
+</html>

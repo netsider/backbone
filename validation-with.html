@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-1.11.2.js"></script>
+<script src="underscore.js"></script>
+<script src="backbone.js"></script>
+<script>
+var Man = Backbone.Model.extend({
+    initialize : function(){
+        this.on("invalid",function(model,error){
+            alert(error);
+        });
+    },
+    validate : function(attrs, options){
+        if (attrs.age < 18){
+            return 'below 18';
+        } 
+    }
+});
+//Object will be created without any passed attributes
+var man = new Man({name : 'qian', age : 12}, {validate:true});
+console.log(man) //Object will be without passed attributes
+/* man.isValid() returns 'true' throw we passed invalid attrs.
+   We won't see any error alert message, because Backbone created empty object */
+/* Doesn't work */
+if(man.isValid()){
+    alert( man.get('name') ); //undefined
+}
+/* Works */
+// Created model had invalid attrs, so validationError won't be empty.
+// If all attrs are valid, validationError will be empty
+if(!man.validationError){
+    alert( man.get('name') );
+}
+</script>
+</body>
+</html>
