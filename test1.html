@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+  var myTodo = new Backbone.Model({completed: false});
+	myTodo.validate = function(attrs) {
+	console.log("Validation Called!");
+  if(attrs) {
+    return 'Valid';
+  }
+    if(!attrs) {
+    return 'inValid';
+  }
+  if(attrs === true) {
+    return 'Valid';
+  }
+};
+	//myTodo.set('completed', true, {validate: true}); // logs: Remember to set a title for your todo.
+	console.log('completed: ' + myTodo.get('completed')); // completed: false
+	//myTodo.set({name: 'Samuel'}, {validate: true});// logs: Remember to set a title for your todo.
+	myTodo.set({completed: true}, {validate: true});// logs: Remember to set a title for your todo.
+</script>
+</body>
+</html>

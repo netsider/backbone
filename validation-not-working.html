@@ -9,7 +9,7 @@
 <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
 <script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
 <script>
-var Person = new Backbone.Model.extend({name: 'Russell'});
+var Person = new Backbone.Model({name: 'Russell'});
 Person.validate = function(attrs) {
 	console.log("Validation Called!");
   if(!attrs.name) {
