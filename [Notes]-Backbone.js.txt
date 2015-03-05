@@ -1,0 +1,2 @@
+Note: When declaring a View, options, el, tagName, id and className may be defined as functions, if you want their values to be determined at runtime
+

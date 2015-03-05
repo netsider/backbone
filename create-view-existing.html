@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<div id="container"></div>
+
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var TodosView = Backbone.View.extend({
+	el: '#container'
+	// el: $('#footer')
+	});
+
+	var todosView = new TodosView();
+	console.log(todosView.el); // logs <ul id="todos" class="container"></ul>
+  </script>  
+  </body>
+</html>

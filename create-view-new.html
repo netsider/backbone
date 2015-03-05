@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<div id="user-card"></div>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+var TodoView = Backbone.View.extend({
+
+  tagName:  'li',
+
+  // Cache the template function for a single item.
+  todoTpl: _.template( "An example template" ),
+
+  events: {
+    'dblclick label': 'edit',
+    'keypress .edit': 'updateOnEnter',
+    'blur .edit':   'close'
+  },
+
+  initialize: function (options) {
+  console.log("Init function called");
+    // In Backbone 1.1.0, if you want to access passed options in
+    // your view, you will need to save them as follows:
+    this.options = options || {};
+  },
+
+  // Re-render the title of the todo item.
+  render: function() {
+	console.log("Render function called");
+    this.$el.html( this.todoTpl( this.model.attributes ) );
+    this.input = this.$('.edit');
+    return this;
+  },
+
+  edit: function() {
+  console.log("Edit function called");
+    // executed when todo label is double clicked
+  },
+
+  close: function() {
+  console.log("Close function called");
+    // executed when todo loses focus
+  },
+
+  updateOnEnter: function( e ) {
+  console.log("UOE function called");
+    // executed on each keypress when in todo edit mode,
+    // but we'll wait for enter to get in action
+  }
+});
+
+var todoView = new TodoView();
+
+// log reference to a DOM element that corresponds to the view instance
+console.log(todoView.el); // logs <li></li>
+  </script>
+  </body>
+</html>
