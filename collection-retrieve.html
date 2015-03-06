@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var Todo = Backbone.Model.extend({
+		defaults: {
+		title: '',
+		completed: false
+	}
+	});
+	  var TodosCollection = Backbone.Collection.extend({
+	  model: Todo
+	});
+	var myTodo = new Todo({title:'Read the whole book', id: 2});
+	// pass array of models on collection instantiation
+	var todos = new TodosCollection([myTodo]);
+	var todo2 = todos.get(2);
+	// Models, as objects, are passed by reference
+console.log(todo2 === myTodo); // true
+  </script>
+  </body>
+</html>
