@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+var TodosCollection = new Backbone.Collection();
+
+TodosCollection.on("add", function(todo) {
+  console.log("I should " + todo.get("title") + ". Have I done it before? "  + (todo.get("completed") ? 'Yeah!': 'No.' ));
+});
+
+TodosCollection.add([
+  { title: 'go to Jamaica', completed: false },
+  { title: 'go to China', completed: false },
+  { title: 'go to Disneyland', completed: true }
+]);
+
+// The above logs:
+// I should go to Jamaica. Have I done it before? No.
+// I should go to China. Have I done it before? No.
+// I should go to Disneyland. Have I done it before? Yeah!
+
+var TodosCollection = new Backbone.Collection();
+
+// log a message if a model in the collection changes
+TodosCollection.on("change:title", function(model) {
+    console.log("Changed my mind! I should " + model.get('title'));
+});
+
+TodosCollection.add([
+  { title: 'go to Jamaica.', completed: false, id: 3 },
+]);
+
+var myTodo = TodosCollection.get(3);
+
+myTodo.set('title', 'go fishing');
+// Logs: Changed my mind! I should go fishing
+
+  </script>
+  </body>
+</html>
