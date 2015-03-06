@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var compiled = _.template("<% print('Hello ' + epithet); %>");
+	console.log(compiled({epithet: "stooge"}));
+  </script>  
+  </body>
+</html>

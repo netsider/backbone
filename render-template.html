@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+</head>
+<body>
+ <script type="text/template" id="item-template">
+    <div>
+      <input id="todo_complete" type="checkbox" <%= completed ? 'checked="checked"' : '' %>>
+      <%= title %>
+    </div>
+  </script>
+<script>
+  var ItemView = Backbone.View.extend({
+  events: {},
+  render: function(){
+    this.$el.html(this.template(this.model.attributes));
+    return this;
+  }
+});
+var ListView = Backbone.View.extend({
+  template: _.template($("#item-template").html()),
+  render: function(){
+    var items = this.model.get('items');
+    _.each(items, function(item){
+      var itemView = new ItemView({ model: item });
+      this.$el.append( itemView.render().el );
+    }, this);
+  }
+});
+  </script>
+  </body>
+</html>
