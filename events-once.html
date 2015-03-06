@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	// Define an object with two counters
+	var TodoCounter = { counterA: 0, counterB: 0 };
+	// Mix in Backbone Events
+	_.extend(TodoCounter, Backbone.Events);
+	// Increment counterA, triggering an event
+	var incrA = function(){ 
+	  TodoCounter.counterA += 1; 
+	  // This triggering will not 
+	  // produce any effect on the counters
+	  TodoCounter.trigger('event'); 
+	};
+	// Increment counterB
+	var incrB = function(){ 
+	  TodoCounter.counterB += 1; 
+	};
+	// Use once rather than having to explicitly unbind
+	// our event listener
+	TodoCounter.once('event', incrA);
+	TodoCounter.once('event', incrB);
+	// Trigger the event for the first time
+	TodoCounter.trigger('event');
+	// Check out output
+	console.log(TodoCounter.counterA === 1); // true
+	console.log(TodoCounter.counterB === 1); // true
+  </script>
+  </body>
+</html>
