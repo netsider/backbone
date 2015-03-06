@@ -1,2 +1,9 @@
 Note: When declaring a View, options, el, tagName, id and className may be defined as functions, if you want their values to be determined at runtime
 
+
+[Views]
+El is the central property of a view.
+
+There are two ways to associate a DOM element with a view: a new element can be created for the view and subsequently added to the DOM or a reference can be made to an element which already exists in the page.
+
+Apply existing Backbone view's to a different DOM elements by using setElement.  setElement will create a cached $el reference for you, moving the delegated events for a view from the old element to the new one.

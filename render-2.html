@@ -6,16 +6,20 @@
   <meta name="description" content="">
 </head>
 <body>
-  <div id="todo">
+  <div id="list_template">
   </div>
-  <script type="text/template" id="item-template">
-    <div>
-      <input id="todo_complete" type="checkbox" <%= completed ? 'checked="checked"' : '' %>>
-      <%= title %>
-    </div>
-  </script>
 <script src="jquery-1.11.2.js"></script>
   <script src="underscore.js"></script>
   <script src="backbone.js"></script>
-</body>
+  <script>
+    var ListView = Backbone.View.extend({
+  template: _.template($("#list_template").html()),
+  
+  render: function() {
+    this.$el.html(this.template(this.model.attributes));
+    return this;
+  }
+})
+  </script>
+  </body>
 </html>
