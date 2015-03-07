@@ -9,13 +9,17 @@
   <script src="underscore.js"></script>
   <script src="backbone.js"></script>
   <script>
-  
+  var count = 0;
   var TodosCollection = new Backbone.Collection();
 // we can listen for reset events
 //TodosCollection.on("reset", function() {
 //  console.log("Collection reset.");
 //});
-count = 0;
+TodosCollection.add([
+  { title: 'go to Jamaica.', completed: false },
+  { title: 'go to China.', completed: false },
+  { title: 'go to Disneyland.', completed: true }
+]);
 TodosCollection.on('reset', function(TodosCollection, options) {
 	console.log("Reset Event Listener Fired");
 	_.each(options.previousModels, function(model){ // Loop through options.previousModels
@@ -25,26 +29,25 @@ TodosCollection.on('reset', function(TodosCollection, options) {
 		console.log('Model: ' + model.get('title'));
 		count++;
 		console.log(count);
+		
     });
-	console.log(options.previousModels);
-	console.log('options.previousModels: ' + options.previousModels[0]);
-	console.log(options.previousModels[0] === TodosCollection); // should be true, but isn't
-	
+	console.log('options.previousModels: ' + options.previousModels);
+	console.log('options.previousModels[0]: ' + options.previousModels[0]);
+	console.log('JSON stringified options.previousModels: ' + JSON.stringify(options.previousModels));
+	//console.log(options.previousModels[0] === TodosCollection); 
+	//console.log(options.previousModels[1] === TodosCollection);
+	//console.log(options.previousModels[2] === TodosCollection); 
+	console.log(options.previousModels === TodosCollection); // should be true, but isn't
+	//console.log('JSON stringified: ' + TodosCollection.toSource()); // Prints out this function.
 });
-TodosCollection.add([
-  { title: 'go to Jamaica.', completed: false },
-  { title: 'go to China.', completed: false },
-  { title: 'go to Disneyland.', completed: true }
-]);
+
 console.log('Collection size: ' + TodosCollection.length); // Collection size: 3
 //TodosCollection.reset([
 //  { title: 'go to Cuba.', completed: false }
 //]);
-//console.log('Collection size: ' + TodosCollection.length); // Collection size: 1
 TodosCollection.reset([]);
 console.log('Collection size: ' + TodosCollection.length); // Collection size: 0
 console.log('Collection: ' + TodosCollection);
-
 </script>
-  </body>
+</body>
 </html>

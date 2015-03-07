@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+  var todo = new Backbone.Model();
+	var todos = new Backbone.Collection([todo])
+	.on('reset', function(todos, options) {
+		console.log(options.previousModels);
+		console.log([todo]);
+		console.log(options.previousModels[0] === todo); // true
+	});
+	todos.reset([]);
+</script>  
+</body>
+</html>
