@@ -14,3 +14,22 @@ There are two ways to associate a DOM element with a view: a new element can be 
 
 Apply existing Backbone view's to a different DOM elements by using setElement.  setElement will create a cached $el reference for you, moving the delegated events for a view from the old element to the new one.
 
+Backbone.Model
+Backbone.View
+Backbone.Collection
+
+
+Functions:
+.on
+.add
+.reset
+.set
+.get
+.setElement
+.trigger
+.once
+
+Collection.set - Takes a collection of models and performs CRUD.
+Collection.reset - Replaces entire contents of collection (Doesn't fire any events).
+
+
