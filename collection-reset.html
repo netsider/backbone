@@ -22,7 +22,7 @@ TodosCollection.add([
 ]);
 TodosCollection.on('reset', function(TodosCollection, options) {
 	console.log("Reset Event Listener Fired");
-	_.each(options.previousModels, function(model){ // Loop through options.previousModels
+	_.each(options.previousModels, function(model){ // Foreach through options.previousModels
 		console.log("Foreach Loop");
 		console.log(model.toJSON());
 		//model.trigger('remove');
@@ -42,7 +42,7 @@ TodosCollection.on('reset', function(TodosCollection, options) {
 	//console.log('JSON stringified: ' + TodosCollection.toSource()); // Prints out this function.
 });
 console.log('Collection size: ' + TodosCollection.length); // Collection size: 3
-//TodosCollection.reset([
+//TodosCollection.reset([ // Reset can also be used to add/remove/change collections
 //  { title: 'go to Cuba.', completed: false }
 //]);
 TodosCollection.reset([]);
