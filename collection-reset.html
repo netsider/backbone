@@ -29,18 +29,18 @@ TodosCollection.on('reset', function(TodosCollection, options) {
 		console.log('Model: ' + model.get('title'));
 		count++;
 		console.log(count);
-		
     });
 	console.log('options.previousModels: ' + options.previousModels);
 	console.log('options.previousModels[0]: ' + options.previousModels[0]);
 	console.log('JSON stringified options.previousModels: ' + JSON.stringify(options.previousModels));
+	console.log('JSON Stringified TodosCollection' + JSON.stringify(TodosCollection));
+	console.log('JSON.stringify(whatever.toJSON()): ' + JSON.stringify(TodosCollection.toJSON()));
 	//console.log(options.previousModels[0] === TodosCollection); 
 	//console.log(options.previousModels[1] === TodosCollection);
 	//console.log(options.previousModels[2] === TodosCollection); 
 	console.log(options.previousModels === TodosCollection); // should be true, but isn't
 	//console.log('JSON stringified: ' + TodosCollection.toSource()); // Prints out this function.
 });
-
 console.log('Collection size: ' + TodosCollection.length); // Collection size: 3
 //TodosCollection.reset([
 //  { title: 'go to Cuba.', completed: false }
