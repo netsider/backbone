@@ -22,11 +22,9 @@
 	// pass array of models on collection instantiation
 	var todos = new TodosCollection([myTodo]);
 	var todo2 = todos.get(2);
-	
 console.log(todo2 === myTodo); // true
-var todoCid = todos.get(todo2.cid);
 console.log(todo2.cid);
-console.log(todoCid === myTodo); // true
+console.log(todos.get(todo2.cid) === myTodo); // true
   </script>
   </body>
 </html>

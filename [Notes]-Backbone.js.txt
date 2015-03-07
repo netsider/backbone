@@ -34,4 +34,4 @@ model.toJSON();
 Collection.set - Takes a collection of models and performs CRUD.
 Collection.reset - Replaces entire contents of collection (Doesn't fire any events).
 
-
+console.log(JSON.stringify(items.toJSON()));
