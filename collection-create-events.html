@@ -11,7 +11,6 @@
   <script>
 	var Fruit = Backbone.Model.extend({  // Create model with initialize function
 	});
-	
 	var FruitS = Backbone.Collection.extend({ // Create collection
 		model: Fruit,
 		initialize: function(){
@@ -26,9 +25,7 @@
 		});
 		}
 	});
-
 	var fruitcollection = new FruitS({ type: 'apple', color: 'red' }); // create new instance of collection, and add items when it is created
-	
   </script>
   </body>
 </html>

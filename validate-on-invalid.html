@@ -16,21 +16,16 @@
 		}
 		}
 	});
-
 	var apple = new Fruit({ // new instance
 		type: 'apple',
 		color: 'red'
 	});
-	
 	apple.on('invalid', function (model, error) {
 		console.log("Invalid!");
 		console.log(error);	
 	});
-	
 	apple.set('quantity', 'FFFFFFFFFFFFFFFFF', {validate: true});
 	//apple.set('quantity', 'FFFFFFFFFFFFFFFFF');
-  
-  
   </script>
   </body>
 </html>

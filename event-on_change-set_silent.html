@@ -11,14 +11,14 @@
 <script>
 	var Person = new Backbone.Model();
 	Person.on("change:name", function() { console.log('Name changed'); });
-	console.log(Person.hasChanged("name"));
-	console.log(Person.hasChanged(null));
+	console.log(Person.hasChanged("name")); // false
+	console.log(Person.hasChanged(null)); // false
 	Person.set({name: 'Jeremy'}, {silent: true});
-	console.log(Person.hasChanged(null));
-	console.log(Person.hasChanged("name"));
+	console.log(Person.hasChanged(null)); // true
+	console.log(Person.hasChanged("name")); // true
 	Person.set({name: 'Andrew'}); // WON'T FIRE "NAME CHANGED" UNTIL THIS LINE!
-	console.log(Person.hasChanged("name"));
-	console.log(Person.hasChanged(null));
+	console.log(Person.hasChanged("name")); // true
+	console.log(Person.hasChanged(null)); // true
 </script>
 </body>
 </html>
