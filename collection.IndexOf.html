@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var people = new Backbone.Collection;
+	people.comparator = function(a, b) {
+	  return a.get('name') < b.get('name') ? -1 : 1;
+	};
+	var tom = new Backbone.Model({name: 'Tom'});
+	var rob = new Backbone.Model({name: 'Rob'});
+	var tim = new Backbone.Model({name: 'Tim'});
+	people.add(tom);
+	people.add(rob);
+	people.add(tim);
+	console.log(people.indexOf(rob) === 0); // true
+	console.log(people.indexOf(tom) === 2); // true
+	console.log(people.indexOf(tim) === 1); // true
+	console.log(people.indexOf(rob)); // 0
+	console.log(people.indexOf(tom)); // 2
+	console.log(people.indexOf(tim)); // 1
+  </script>  
+  </body>
+</html>
