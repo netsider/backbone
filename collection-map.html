@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+  	var todos = new Backbone.Collection();
+	todos.add([
+		{ title: 'go to Belgium.', completed: false },
+		{ title: 'go to China.', completed: false },
+		{ title: 'go to Austria.', completed: true }
+	]);
+	var count = 1;
+	console.log(todos.map(function(model){
+	return count++ + ". " + model.get('title');
+	}));
+
+	// Above logs:
+	//1. go to Belgium.
+	//2. go to China.
+	//3. go to Austria
+  </script>  
+  </body>
+</html>

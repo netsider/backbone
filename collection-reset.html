@@ -10,7 +10,8 @@
   <script src="backbone.js"></script>
   <script>
   var count = 0;
-  var TodosCollection = new Backbone.Collection();
+  var mytodo = new Backbone.Model();
+  var TodosCollection = new Backbone.Collection([mytodo]);
 // we can listen for reset events
 //TodosCollection.on("reset", function() {
 //  console.log("Collection reset.");
@@ -38,7 +39,7 @@ TodosCollection.on('reset', function(TodosCollection, options) {
 	//console.log(options.previousModels[0] === TodosCollection); 
 	//console.log(options.previousModels[1] === TodosCollection);
 	//console.log(options.previousModels[2] === TodosCollection); 
-	console.log(options.previousModels === TodosCollection); // should be true, but isn't
+	console.log(options.previousModels === mytodo); // should be true, but isn't
 	//console.log('JSON stringified: ' + TodosCollection.toSource()); // Prints out this function.
 });
 console.log('Collection size: ' + TodosCollection.length); // Collection size: 3

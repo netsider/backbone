@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+	<script src="jquery-1.11.2.js"></script>
+	<script src="underscore.js"></script>
+	<script src="backbone.js"></script>
+	<script>
+	// Iterating over a collection
+	var todos = new Backbone.Collection(); // create new collection
+
+	todos.add([ // populate collection
+		{ title: 'go to Belgium.', completed: false },
+		{ title: 'go to China.', completed: false },
+		{ title: 'go to Austria.', completed: true }
+	]);
+
+	// iterate over models in the collection using .forEach()
+	todos.forEach(function(model){
+		console.log(model.get('title'));
+	});
+	// Above logs:
+	// go to Belgium.
+	// go to China.
+	// go to Austria.
+	</script>
+	</body>
+</html>

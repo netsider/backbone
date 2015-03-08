@@ -39,3 +39,5 @@ Collection.set - Takes a collection of models and performs CRUD.
 Collection.reset - Replaces entire contents of collection (Doesn't fire any events).
 
 console.log(JSON.stringify(items.toJSON()));
+
+Chain - sequence of method calls on the same object that are performed in a single statement

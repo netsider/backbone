@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+  	var stooges = new Backbone.Collection();
+	stooges.add([
+		{ title: 'Larry', completed: false, age: 50 },
+		{ title: 'Moe', completed: false, age: 50 },
+		{ title: 'Curley', completed: true, age: 50 }
+	]);
+	console.log(_.max(stooges, function(stooge){ return stooge.age; })); // DOESN'T WORK - UNDERSCORE'S _.MAX METHOD CANNOT BE USED FOR COLLECTIONS!
+  </script>  
+  </body>
+</html>
