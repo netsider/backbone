@@ -15,15 +15,8 @@
 		{ title: 'go to China.', completed: false },
 		{ title: 'go to Austria.', completed: true }
 	]);
-	var count = 1;
-	console.log(todos.map(function(model){
-	return count++ + ". " + model.get('title');
-	}));
-
-	// Above logs:
-	//1. go to Belgium.
-	//2. go to China.
-	//3. go to Austria
+	var captions = todos.pluck('title'); // Creates an array of all 'title' values
+	console.log(captions);
   </script>  
   </body>
 </html>

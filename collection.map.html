@@ -11,22 +11,18 @@
   <script>
   	var todos = new Backbone.Collection();
 	todos.add([
-		{ title: 'go to China.', completed: false },
 		{ title: 'go to Belgium.', completed: false },
+		{ title: 'go to China.', completed: false },
 		{ title: 'go to Austria.', completed: true }
 	]);
-	var sortedByAlphabet = todos.sortBy(function (todo) { // use sortBy() to re-order the models
-		return todo.get("title").toLowerCase();
-	});
-	console.log("- Now sorted: ");
-	sortedByAlphabet.forEach(function(model){ // use foreach to log each to console
-	  console.log(model.get('title'));
-	});
+	var count = 1;
+	console.log(todos.map(function(model){
+	return count++ + ". " + model.get('title');
+	}));
 	// Above logs:
-	// - Now sorted:
-	// go to Austria.
-	// go to Belgium.
-	// go to China.
+	//1. go to Belgium.
+	//2. go to China.
+	//3. go to Austria
   </script>  
   </body>
 </html>

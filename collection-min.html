@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+  	var c = new Backbone.Collection();
+	c.add([
+		{ title: 'go to Belgium.', completed: false, age: 50, id: 1 },
+		{ title: 'go to China.', completed: false, age: 50, id: 2 },
+		{ title: 'go to Austria.', completed: true, age: 50, id: 3 }
+	]);
+	var count = 1;
+	var m=c.min(function(model) {
+		console.log(count);
+		return model.get('id');
+		count++;
+	});
+	console.log(m);
+  </script>  
+  </body>
+</html>

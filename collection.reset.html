@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <title></title>
 </head>
-<body>
+<body> 
   <script src="jquery-1.11.2.js"></script>
   <script src="underscore.js"></script>
   <script src="backbone.js"></script>
-  <script>
+  <script> // Line 42 isn't true, but should be
   var count = 0;
   var mytodo = new Backbone.Model();
-  var TodosCollection = new Backbone.Collection([mytodo]);
+  var TodosCollection = new Backbone.Collection([]);
 // we can listen for reset events
 //TodosCollection.on("reset", function() {
 //  console.log("Collection reset.");
@@ -33,14 +33,9 @@ TodosCollection.on('reset', function(TodosCollection, options) {
     });
 	console.log('options.previousModels: ' + options.previousModels);
 	console.log('options.previousModels[0]: ' + options.previousModels[0]);
-	console.log('JSON stringified options.previousModels: ' + JSON.stringify(options.previousModels));
-	console.log('JSON Stringified TodosCollection' + JSON.stringify(TodosCollection));
-	console.log('JSON.stringify(whatever.toJSON()): ' + JSON.stringify(TodosCollection.toJSON()));
-	//console.log(options.previousModels[0] === TodosCollection); 
-	//console.log(options.previousModels[1] === TodosCollection);
-	//console.log(options.previousModels[2] === TodosCollection); 
-	console.log(options.previousModels === mytodo); // should be true, but isn't
-	//console.log('JSON stringified: ' + TodosCollection.toSource()); // Prints out this function.
+	console.log('JSON stringified options.previousModels: ' + JSON.stringify(options.previousModels)); 
+	console.log(options.previousModels === TodosCollection[0]); // should be true, but isn't
+	//console.log('JSON stringified: ' + TodosCollection.toSource()); // Prints out this function, for some reason
 });
 console.log('Collection size: ' + TodosCollection.length); // Collection size: 3
 //TodosCollection.reset([ // Reset can also be used to add/remove/change collections

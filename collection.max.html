@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var count = 1;
+  	var c = new Backbone.Collection();
+	c.add([
+		{ title: 'go to Belgium.', completed: false, age: 50, id: 1 },
+		{ title: 'go to China.', completed: false, age: 50, id: 2 },
+		{ title: 'go to Austria.', completed: true, age: 50, id: 3 }
+	]);
+	// console.log(c.max()); // Logs: "infinity"
+	//
+	// console.log(c.max(function(model) { // Working.
+		// return model.get('id'); // Gets id attribute, so it can select max
+	// }));
+	//
+	var maximum = c.max(function(model){ // Cannot get working
+		return model.id;
+	}).id;
+	console.log(maximum);
+  </script>  
+  </body>
+</html>

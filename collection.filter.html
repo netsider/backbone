@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script src="jquery-1.11.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script>
+	var Todo = new Backbone.Model({});
+	var Todos = Backbone.Collection.extend({
+	model: Todo,
+	filterById: function(ids){
+	return this.models.filter(
+      function(c) { 
+        return _.contains(ids, c.id); 
+      })
+  }
+});
+	//Call Function
+	var R = Todos.filterById(['1', '2', '146', '3', '4', '9', '26', '8', '96', '10', '11', '54',' 145', '273', '38']);
+	//console.log(JSON.stringify(Todos.toJSON()));
+	//console.log(Todos.toJSON());
+	console.log(R);
+  </script>  
+  </body>
+</html>
