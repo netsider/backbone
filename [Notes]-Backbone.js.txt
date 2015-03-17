@@ -1,12 +1,7 @@
 ﻿Note: When declaring a View, options, el, tagName, id and className may be defined as functions, if you want their values to be determined at runtime
 
 Not working:
-collection.reset.html
-collection.filter.html
-
-[Questions]
-
-
+collection-reset.html
 
 [GOTCHAS]
 If a validation function uses the return statement, and returns ANYTHING, validation fails, and when it does, the statement is not executed.
@@ -43,8 +38,10 @@ Functions:
 
 model.toJSON();
 
-Collection.set - Takes a collection of models and performs CRUD.
-Collection.reset - Replaces entire contents of collection (Doesn't fire any events).
+collection.max
+collection.min
+collection.set - Takes a collection of models and performs CRUD.
+collection.reset - Replaces entire contents of collection (Doesn't fire any events).
 
 console.log(JSON.stringify(items.toJSON()));
 
